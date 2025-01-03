@@ -57,3 +57,17 @@
   color: #333;
   font-weight: bold;
 }
+
+.logo-container {
+  max-width: 200px;
+  height: auto;
+}
+
+.Logo {
+  display: block;
+  margin: 0 auto;
+  width: 100px;
+  height: auto;
+  margin-top: 0;
+  margin-bottom: 20px;
+}

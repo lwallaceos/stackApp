@@ -1,223 +1,79 @@
-const companiesData = [
-    {
-      name: "Facebook",
-      stack: [
-        "React", "Node.js", "GraphQL", "MySQL", "JavaScript", "Hack", "Redux", "React Native",
-        "Jest", "Flow", "Apache Thrift", "Presto", "Apache HBase", "Zookeeper", "Memcached", "Apache Kafka"
-      ]
-    },
-    {
-      name: "Google",
-      stack: [
-        "Angular", "Golang", "Java", "C++", "Bigtable", "TensorFlow", "Firebase", "Kubernetes",
-        "Google Cloud Platform (GCP)", "Jupyter Notebooks", "Googler", "Bash", "MySQL", "Spanner", "Protocol Buffers"
-      ]
-    },
-    {
-      name: "Netflix",
-      stack: [
-        "React", "Node.js", "Java", "Spring Boot", "Redis", "AWS", "MongoDB", "Python", "PostgreSQL",
-        "GraphQL", "Apache Kafka", "Zookeeper", "Elasticsearch", "Hadoop", "Amazon RDS"
-      ]
-    },
-    {
-      name: "Uber",
-      stack: [
-        "Node.js", "React", "Java", "Python", "MySQL", "PostgreSQL", "Kafka", "AWS", "Go", "Cassandra",
-        "Redis", "Google BigQuery", "Docker", "Kubernetes", "GraphQL"
-      ]
-    },
-    {
-      name: "Spotify",
-      stack: [
-        "React", "Node.js", "Golang", "Python", "AWS", "PostgreSQL", "Apache Kafka", "Redis", "Docker",
-        "Kubernetes", "Terraform", "Helm", "Prometheus", "Grafana"
-      ]
-    },
-    {
-      name: "Twitter",
-      stack: [
-        "Scala", "Ruby on Rails", "MySQL", "PostgreSQL", "Kafka", "Redis", "Java", "React", "Elasticsearch",
-        "Memcached", "Cassandra", "Kubernetes", "Apache Hadoop", "Spring Boot"
-      ]
-    },
-    {
-      name: "Airbnb",
-      stack: [
-        "React", "Ruby on Rails", "Node.js", "PostgreSQL", "GraphQL", "Redux", "React Native", "MySQL",
-        "Kubernetes", "Docker", "Elasticsearch", "Kafka", "AWS", "S3", "Terraform"
-      ]
-    },
-    {
-      name: "GitHub",
-      stack: [
-        "Ruby on Rails", "React", "Node.js", "PostgreSQL", "MySQL", "Redis", "Go", "AWS", "Kubernetes",
-        "Docker", "Jenkins", "Elasticsearch", "GraphQL", "Clojure", "AngularJS"
-      ]
-    },
-    {
-      name: "LinkedIn",
-      stack: [
-        "Java", "Scala", "Apache Kafka", "Hadoop", "MySQL", "React", "Apache Lucene", "Elasticsearch",
-        "Voldemort", "Apache HBase", "Zookeeper", "AWS", "Docker", "Spring Boot", "Akka"
-      ]
-    },
-    {
-      name: "Slack",
-      stack: [
-        "JavaScript", "React", "Node.js", "Java", "MySQL", "PostgreSQL", "AWS", "Redis", "Elasticsearch",
-        "Apache Kafka", "Docker", "GraphQL", "RabbitMQ", "Kubernetes"
-      ]
-    },
-    {
-      name: "Amazon",
-      stack: [
-        "Java", "AWS", "Ruby on Rails", "React", "Node.js", "PostgreSQL", "DynamoDB", "ElasticSearch", 
-        "S3", "Lambda", "ECS", "EKS", "SNS", "SQS", "API Gateway", "CloudWatch", "Elastic Beanstalk"
-      ]
-    },
-    {
-      name: "Microsoft",
-      stack: [
-        "C#", "Azure", ".NET", "SQL Server", "JavaScript", "React", "Node.js", "Angular", "Power BI",
-        "PowerShell", "SharePoint", "Xamarin", "SignalR", "SQL Server", "Windows Server", "Docker", "Kubernetes"
-      ]
-    },
-    {
-      name: "Pinterest",
-      stack: [
-        "Python", "Django", "React", "Node.js", "Redis", "PostgreSQL", "Kafka", "AWS", "Java", "MySQL",
-        "Elasticsearch", "GraphQL", "Docker", "Kubernetes", "Apache Kafka"
-      ]
-    },
-    {
-      name: "Shopify",
-      stack: [
-        "Ruby on Rails", "React", "GraphQL", "Node.js", "MySQL", "Redis", "Kubernetes", "React Native",
-        "GraphQL", "Docker", "Terraform", "AWS", "PostgreSQL"
-      ]
-    },
-    {
-      name: "Snapchat",
-      stack: [
-        "React", "Node.js", "Python", "Go", "Redis", "MySQL", "AWS", "Kafka", "Google Cloud", "Cassandra",
-        "Docker", "Kubernetes", "Elasticsearch"
-      ]
-    },
-    {
-      name: "Dropbox",
-      stack: [
-        "Python", "Django", "React", "Go", "PostgreSQL", "MySQL", "AWS", "MongoDB", "Cassandra",
-        "Redis", "Kubernetes", "Terraform", "Helm", "GraphQL"
-      ]
-    },
-    {
-      name: "Snap Inc.",
-      stack: [
-        "React", "Python", "Node.js", "Go", "AWS", "Redis", "MySQL", "Apache Kafka", "Docker", "Kubernetes"
-      ]
-    },
-    {
-      name: "Reddit",
-      stack: [
-        "Python", "Django", "React", "Node.js", "PostgreSQL", "Redis", "AWS", "React Native", "Go", "Docker"
-      ]
-    },
-    {
-      name: "Zynga",
-      stack: [
-        "Java", "Ruby on Rails", "React", "Node.js", "Redis", "PostgreSQL", "AWS", "Cassandra", "ElasticSearch"
-      ]
-    },
-    {
-      name: "WhatsApp",
-      stack: [
-        "Erlang", "React", "Node.js", "MySQL", "FreeBSD", "Java", "C++", "Android", "iOS", "AWS"
-      ]
-    },
-    {
-      name: "Instagram",
-      stack: [
-        "Python", "Django", "React", "Node.js", "Redis", "MySQL", "AWS", "ElasticSearch", "GraphQL", "Kubernetes"
-      ]
-    },
-    {
-      name: "Yahoo",
-      stack: [
-        "Node.js", "React", "Java", "PHP", "Hadoop", "YQL", "Redis", "MySQL", "Cassandra", "ElasticSearch"
-      ]
-    },
-    {
-      name: "Atlassian (Jira, Trello)",
-      stack: [
-        "Java", "Node.js", "React", "MongoDB", "PostgreSQL", "Docker", "Kubernetes", "AWS", "GraphQL"
-      ]
-    },
-    {
-      name: "Adobe",
-      stack: [
-        "Java", "React", "Node.js", "C++", "AWS", "Redis", "JavaScript", "PostgreSQL", "Kubernetes", "Elasticsearch"
-      ]
-    },
-    {
-      name: "Salesforce",
-      stack: [
-        "Apex", "JavaScript", "React", "Node.js", "Heroku", "AWS", "MySQL", "PostgreSQL", "Salesforce Platform"
-      ]
-    },
-    {
-      name: "PayPal",
-      stack: [
-        "Java", "Node.js", "React", "MongoDB", "MySQL", "Docker", "AWS", "Redis", "GraphQL", "Kubernetes"
-      ]
-    },
-    {
-      name: "Walmart",
-      stack: [
-        "Java", "React", "Node.js", "MongoDB", "AWS", "Python", "Kubernetes", "Docker", "GraphQL", "ElasticSearch"
-      ]
-    },
-    {
-      name: "Oracle",
-      stack: [
-        "Java", "Oracle DB", "React", "Node.js", "Kubernetes", "AWS", "Docker", "SQL", "ElasticSearch"
-      ]
-    },
-    {
-      name: "Square",
-      stack: [
-        "Ruby on Rails", "React", "Node.js", "PostgreSQL", "Java", "AWS", "Redis", "Kubernetes", "Docker"
-      ]
-    },
-    {
-      name: "Vimeo",
-      stack: [
-        "PHP", "React", "Node.js", "MySQL", "Redis", "Amazon S3", "AWS", "ElasticSearch", "Docker"
-      ]
-    },
-    {
-      name: "GitLab",
-      stack: [
-        "Ruby on Rails", "React", "Node.js", "PostgreSQL", "MySQL", "Redis", "Golang", "AWS", "Docker", "Kubernetes"
-      ]
-    },
-    {
-      name: "Braintree (PayPal)",
-      stack: [
-        "Ruby on Rails", "React", "Node.js", "PostgreSQL", "Redis", "AWS", "Docker", "GraphQL", "Elasticsearch"
-      ]
-    },
-    {
-      name: "Twitch",
-      stack: [
-        "Go", "Python", "Node.js", "React", "MySQL", "Redis", "AWS", "Docker", "Kubernetes", "Apache Kafka"
-      ]
-    },
-    {
-      name: "TikTok",
-      stack: [
-        "Go", "Python", "Java", "React", "PostgreSQL", "AWS", "Redis", "Kafka", "ElasticSearch", "Docker"
-      ]
-    }
-  ];
+const companyTechStack = [
+    { name: "Google", industry: "Technology", techStack: ["Python", "Java", "C++", "Golang", "Kubernetes", "TensorFlow", "BigQuery"] },
+    { name: "Microsoft", industry: "Technology", techStack: ["C#", ".NET", "Azure", "TypeScript", "Power BI", "SQL Server"] },
+    { name: "Amazon", industry: "E-commerce/Cloud Computing", techStack: ["Java", "Python", "AWS", "React", "Node.js", "DynamoDB", "Lambda"] },
+    { name: "Facebook (Meta)", industry: "Social Media/Technology", techStack: ["React", "PHP (Hack)", "GraphQL", "Python", "Presto", "Spark"] },
+    { name: "Netflix", industry: "Streaming/Technology", techStack: ["Java", "Python", "Node.js", "React", "AWS", "Kafka", "Spinnaker"] },
+    { name: "Tesla", industry: "Automotive/Technology", techStack: ["Python", "C++", "MATLAB", "JavaScript", "AWS", "Kafka"] },
+    { name: "Apple", industry: "Technology", techStack: ["Swift", "Objective-C", "Python", "C++", "CloudKit", "Core ML"] },
+    { name: "IBM", industry: "Technology/Consulting", techStack: ["Java", "Python", "C", "Kubernetes", "OpenShift", "Watson AI"] },
+    { name: "Spotify", industry: "Music Streaming", techStack: ["Python", "Java", "Scala", "React", "Kubernetes", "Docker", "GCP"] },
+    { name: "Uber", industry: "Transportation/Technology", techStack: ["Java", "Python", "Node.js", "React", "Kafka", "Redis", "AWS"] },
+    { name: "Twitter", industry: "Social Media", techStack: ["Scala", "Java", "Ruby", "React", "Hadoop", "Kafka", "MySQL"] },
+    { name: "LinkedIn", industry: "Professional Networking", techStack: ["Java", "Scala", "Kubernetes", "Kafka", "Azure", "React", "Spark"] },
+    { name: "Airbnb", industry: "Hospitality/Technology", techStack: ["Ruby on Rails", "Java", "React", "Node.js", "GraphQL", "Redis", "AWS"] },
+    { name: "Pinterest", industry: "Social Media", techStack: ["Java", "Python", "React", "Kubernetes", "Spark", "Hadoop", "AWS"] },
+    { name: "Adobe", industry: "Software/Creative", techStack: ["C++", "Java", "Python", "JavaScript", "Kubernetes", "AWS", "Spark"] },
+    { name: "Dropbox", industry: "Cloud Storage", techStack: ["Python", "Go", "React", "Rust", "Kubernetes", "AWS"] },
+    { name: "Slack", industry: "Communication/Technology", techStack: ["JavaScript", "Node.js", "React", "PHP (Hack)", "AWS", "MySQL"] },
+    { name: "Salesforce", industry: "Cloud CRM", techStack: ["Apex", "Java", "JavaScript", "Heroku", "AWS", "Kubernetes"] },
+    { name: "PayPal", industry: "FinTech", techStack: ["JavaScript", "Java", "Node.js", "React", "Kubernetes", "Kafka", "GCP"] },
+    { name: "Shopify", industry: "E-commerce", techStack: ["Ruby on Rails", "React", "Kubernetes", "MySQL", "GraphQL", "AWS"] },
+    { name: "Stripe", industry: "FinTech", techStack: ["Ruby", "JavaScript", "Scala", "React", "Kubernetes", "AWS"] },
+    { name: "Snapchat", industry: "Social Media", techStack: ["Python", "Java", "React", "Kubernetes", "GCP", "Redis"] },
+    { name: "Zoom", industry: "Video Conferencing", techStack: ["C++", "React", "Node.js", "Kubernetes", "AWS", "Redis"] },
+    { name: "Intel", industry: "Hardware/Technology", techStack: ["C++", "Python", "TensorFlow", "OpenVINO", "Kubernetes", "Docker"] },
+    { name: "Oracle", industry: "Technology", techStack: ["Java", "C", "Python", "Oracle Cloud", "Kubernetes", "Docker"] },
+    { name: "Cisco", industry: "Networking/Technology", techStack: ["C", "C++", "Python", "Kubernetes", "Docker", "AWS"] },
+    { name: "Samsung", industry: "Electronics/Technology", techStack: ["C", "C++", "Python", "TensorFlow", "Kubernetes"] },
+    { name: "HP", industry: "Technology", techStack: ["C++", "Python", "JavaScript", "AWS", "TensorFlow"] },
+    { name: "Baidu", industry: "Technology/AI", techStack: ["Python", "C++", "TensorFlow", "PaddlePaddle", "Kubernetes", "GCP"] },
+    { name: "Alibaba", industry: "E-commerce/Cloud Computing", techStack: ["Java", "Python", "Node.js", "React", "Kubernetes", "Alibaba Cloud"] },
+    { name: "Tencent", industry: "Social Media/Technology", techStack: ["Python", "C++", "JavaScript", "React", "Kubernetes", "Tencent Cloud"] },
+    { name: "TikTok (ByteDance)", industry: "Social Media", techStack: ["Python", "Java", "React", "Kubernetes", "GCP", "Redis"] },
+    { name: "Reddit", industry: "Social Media", techStack: ["Python", "JavaScript", "React", "AWS", "Kubernetes", "PostgreSQL"] },
+    { name: "eBay", industry: "E-commerce", techStack: ["Java", "JavaScript", "Node.js", "React", "Kubernetes", "Oracle DB"] },
+    { name: "GitHub", industry: "Software/Development", techStack: ["Ruby", "JavaScript", "React", "Kubernetes", "Azure"] },
+    { name: "GitLab", industry: "Software/Development", techStack: ["Ruby", "Go", "JavaScript", "Kubernetes", "AWS", "PostgreSQL"] },
+    { name: "WeWork", industry: "Real Estate/Technology", techStack: ["Python", "JavaScript", "Node.js", "React", "Kubernetes", "AWS"] },
+    { name: "DoorDash", industry: "Food Delivery/Technology", techStack: ["Python", "Go", "React", "AWS", "Kubernetes"] },
+    { name: "Instacart", industry: "Food Delivery/Technology", techStack: ["Ruby", "React", "Node.js", "AWS", "Kubernetes"] },
+    { name: "Square", industry: "FinTech", techStack: ["Ruby", "React", "Kotlin", "AWS", "Kubernetes"] },
+    { name: "SpaceX", industry: "Aerospace", techStack: ["C++", "Python", "JavaScript", "AWS", "Kubernetes"] },
+    { name: "OpenAI", industry: "AI Research", techStack: ["Python", "TensorFlow", "PyTorch", "Kubernetes", "Azure"] },
+    { name: "Meta (Facebook)", industry: "Social Media", techStack: ["React", "Python", "GraphQL", "Kubernetes", "MySQL", "Presto"] },
+    { name: "Walmart", industry: "Retail/E-commerce", techStack: ["Java", "React", "Node.js", "Python", "PostgreSQL", "Redis", "AWS"] },
+    { name: "Netflix", industry: "Streaming", techStack: ["Java", "Python", "Kubernetes", "PostgreSQL", "React", "Redis"] },
+    { name: "Disney+", industry: "Streaming", techStack: ["Java", "Node.js", "React", "Redis", "AWS", "Kubernetes"] },
+    { name: "Adobe", industry: "Creative", techStack: ["Java", "React", "C++", "Kubernetes", "PostgreSQL", "AWS"] },
+    { name: "HubSpot", industry: "CRM/Marketing", techStack: ["Java", "React", "Node.js", "Redis", "PostgreSQL", "AWS", "Kubernetes"] },
+    { name: "Squarespace", industry: "Website Development", techStack: ["React", "Node.js", "GraphQL", "MySQL", "AWS", "Kubernetes"] },
+    { name: "Asana", industry: "Project Management", techStack: ["TypeScript", "React", "Node.js", "GraphQL", "PostgreSQL", "AWS", "Kubernetes"] },
+    { name: "Figma", industry: "Design Software", techStack: ["TypeScript", "React", "Node.js", "GraphQL", "AWS", "Kubernetes"] },        { name: "Canva", industry: "Design Software", techStack: ["JavaScript", "React", "Node.js", "GraphQL", "AWS", "Redis"] },
+    { name: "Peloton", industry: "Fitness Technology", techStack: ["Python", "Java", "React", "AWS", "Kubernetes", "PostgreSQL"] },
+    { name: "Robinhood", industry: "FinTech", techStack: ["Python", "React", "Node.js", "GraphQL", "AWS", "Kubernetes"] },
+    { name: "Rivian", industry: "Automotive", techStack: ["Python", "Java", "AWS", "Kubernetes", "Redis", "React"] },
+    { name: "Coursera", industry: "EdTech", techStack: ["Python", "React", "Node.js", "GraphQL", "AWS", "PostgreSQL"] },
+    { name: "Khan Academy", industry: "EdTech", techStack: ["Python", "React", "Node.js", "Redis", "PostgreSQL", "AWS"] },
+    { name: "Eventbrite", industry: "Event Management", techStack: ["Python", "React", "Node.js", "GraphQL", "PostgreSQL", "AWS"] },
+    { name: "Trello", industry: "Project Management", techStack: ["JavaScript", "React", "Node.js", "AWS", "PostgreSQL", "Redis"] },
+    { name: "Notion", industry: "Productivity", techStack: ["TypeScript", "React", "Node.js", "GraphQL", "AWS", "Redis"] },
+    { name: "Plaid", industry: "FinTech", techStack: ["Java", "React", "Node.js", "Redis", "PostgreSQL", "AWS"] },
+    { name: "Okta", industry: "Identity Management", techStack: ["Java", "React", "Node.js", "Redis", "PostgreSQL", "AWS"] },
+    { name: "Twilio", industry: "Communication", techStack: ["Java", "React", "Node.js", "Redis", "PostgreSQL", "AWS"] },
+    { name: "ZoomInfo", industry: "Data Intelligence", techStack: ["Python", "React", "Node.js", "GraphQL", "AWS", "Redis"] },
+    { name: "Yelp", industry: "Local Reviews", techStack: ["Python", "React", "Node.js", "PostgreSQL", "Redis", "AWS"] },
+    { name: "Expedia", industry: "Travel", techStack: ["Java", "React", "Node.js", "GraphQL", "AWS", "PostgreSQL"] },
+    { name: "Booking.com", industry: "Travel", techStack: ["Java", "React", "Node.js", "Redis", "PostgreSQL", "AWS"] },
+    { name: "Etsy", industry: "E-commerce", techStack: ["JavaScript", "React", "Node.js", "GraphQL", "AWS", "Redis"] },
+    { name: "Chewy", industry: "E-commerce", techStack: ["Python", "React", "Node.js", "GraphQL", "PostgreSQL", "AWS"] },
+    { name: "Wayfair", industry: "E-commerce", techStack: ["Python", "React", "Node.js", "Redis", "PostgreSQL", "AWS"] },
+    { name: "Wish", industry: "E-commerce", techStack: ["JavaScript", "React", "Node.js", "GraphQL", "AWS", "Redis"] },
+    { name: "Flipkart", industry: "E-commerce", techStack: ["Java", "React", "Node.js", "GraphQL", "AWS", "PostgreSQL"] },
+    { name: "Zara", industry: "Retail", techStack: ["Python", "React", "Node.js", "AWS", "Kubernetes", "Redis"] },
+    { name: "Nike", industry: "Retail", techStack: ["Python", "React", "Node.js", "AWS", "Kubernetes", "Redis"] },
+    { name: "Patagonia", industry: "Retail", techStack: ["Python", "React", "Node.js", "AWS", "Kubernetes", "PostgreSQL"] },
+    { name: "Pelican", industry: "Manufacturing", techStack: ["Java", "React", "Node.js", "GraphQL", "AWS", "Redis"] }
+]
+
   
